@@ -1,0 +1,63 @@
+<div class="bg-white p-4 rounded-lg shadow h-[1115px] overflow-y-auto border-t-[14px] border-blue-500">
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-4">
+    <div>
+      <h2 class="text-xl font-bold text-gray-700">Top Rule Triggered</h2>
+      <p class="text-sm text-gray-500">Showing Top Triggered Rule</p>
+    </div>
+    <button class="bg-blue-500 px-3 py-1 text-white rounded">
+      <fa-icon [icon]="faEllipsisV"></fa-icon>
+    </button>
+  </div>
+
+  <!-- Rule List -->
+  <ol class="relative space-y-2 text-sm">
+    <li *ngFor="let rule of rules; let i = index" class="relative pl-8">
+      <!-- Titik Nomor + Garis -->
+      <div class="absolute left-0 top-0 flex flex-col items-center h-full">
+        <!-- Titik Nomor -->
+        <div
+          class="w-6 h-6 flex items-center justify-center text-xs font-bold bg-blue-500 text-white rounded-full shadow z-10"
+        >
+          {{ rule.id }}
+      </div>
+
+        <!-- Garis vertikal -->
+        <div
+          class="flex4-1 w-[4px] bg-blue-500 mt-1"
+        ></div>
+    </div>
+
+
+      <!-- Isi konten -->
+      <div class="flex gap-2 
+      ">
+        <!-- Kategori & Deskripsi -->
+        <div class="flex-1">          <div class="font-semibold text-gray-700">
+            {{ rule.category || "lorem" }}
+        </div>
+
+          <div class="mt-1 space-y-1 text-gray-600 text-xs">
+            <div
+              *ngFor="let desc of rule.description"
+              class="flex items-center justify-between"
+            >
+              <div class="flex items-center gap-2">
+                <!-- Titik manual -->
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-gray-500 mt-0.5"
+                ></span>
+                <span>{{ desc.text }}</span>
+              </div>
+
+              <!-- Count -->,
+              <span class="text-[10px] font-bold text-gray-400 ml-2">
+                {{ desc.count }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>

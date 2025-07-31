@@ -1,0 +1,189 @@
+
+<div class="flex flex-col lg:flex-row gap-4 mt-4">
+
+  <div class="flex-1 flex flex-col space-y-4">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <app-transaction-cards></app-transaction-cards>
+      <app-pie-chart></app-pie-chart>
+    </div>
+
+
+    <div class="bg-white p-4 rounded-lg shadow">
+    <h2 class="text-xl ffont-semibold mb-4">Transaction Activity</h2>
+
+
+        <div class="mb-4">
+        <div class="w-full h-48 bg-gray-50 p-4 rounded-t-lg flex justify-around items-end border-b-2 border-gray-200">
+          
+          <div class="relative group">
+            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="text-xs text-gray-700">900</span>
+            </div>
+            <div class="w-12 h-28 bg-blue-400 cursor-pointer"></div>
+          </div>
+
+          <div class="relative group">
+            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="text-xs text-gray-700">1500</span>
+            </div>
+            <div class="w-12 h-36 bg-blue-400 cursor-pointer"></div>
+          </div>
+
+          <div class="relative group">
+            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="text-xs text-gray-700">800</span>
+            </div>
+            <div class="w-12 h-20 bg-blue-400 cursor-pointer"></div>
+          </div>
+
+          <div class="relative group">
+            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="text-xs text-gray-700">799</span>
+            </div>
+            <div class="w-12 h-20 bg-blue-400 cursor-pointer">
+            </div>
+          </div>
+
+          <div class="relative group">
+            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="text-xs text-gray-700">798</span>
+            </div>
+            <div class="w-12 h-20 bg-blue-400 cursor-pointer"></div>
+          </div>
+
+          <div class="relative group">
+            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="text-xs text-gray-700">802</span>
+            </div>
+            <div class="w-12 h-20 bg-blue-400 cursor-pointer"></div>
+          </div>
+
+          <div class="relative group">
+            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="text-xs text-gray-700">800</span>
+            </div>
+            <div class="w-12 h-20 bg-blue-400 cursor-pointer"></div>
+          </div>
+
+        </div>
+        
+        <div class="w-full bg-gray-50 px-4 pb-4 rounded-b-lg flex justify-around">
+          <div class="w-12 text-center text-sm text-gray-500">January</div>
+          <div class="w-12 text-center text-sm text-gray-500">February</div>
+          <div class="w-12 text-center text-sm text-gray-500">March</div>
+          <div class="w-12 text-center text-sm text-gray-500">April</div>
+          <div class="w-12 text-center text-sm text-gray-500">May</div>
+          <div class="w-12 text-center text-sm text-gray-500">June</div>
+          <div class="w-12 text-center text-sm text-gray-500">July</div>
+        </div>
+      </div>
+
+    <div class="bg-white p-4 rounded-lg shadow">
+
+        <div class="mb-4">
+            </div>
+
+        <div>
+            <div class="grid grid-cols-3 gap-4 text-sm">
+            <div class="p-2 font-bold text-gray-500">Time</div>
+            <div class="p-2 font-bold text-gray-500">User ID</div>
+            <div class="p-2 font-bold text-gray-500">Transaction Activity</div>
+            </div>
+
+            <div class="h-64 overflow-y-auto">
+            <!-- Gunakan *ngFor untuk melakukan perulangan pada array 'displayedTransactions' -->
+            <div *ngFor="let trx of displayedTransactions" class="grid grid-cols-3 gap-4 text-sm items-center">
+              <!-- later sort the time descending -->
+                <div class="p-2 border-t border-gray-200">{{ trx.time }}</div>     
+                <div class="p-2 border-t border-gray-200">{{ trx.id }}</div>
+                <div class="p-2 border-t border-gray-200">{{ trx.activity }}</div>
+            </div>
+            </div>          
+        </div>
+    
+        </div>
+      </div>
+    </div>
+
+<!-- Kanan: Sidebar kecil (Top Rule Triggered) -->
+    <div class="w-full lg:w-1/4 bg-white h-fit top-6">
+    <app-top-rule-triggered></app-top-rule-triggered>
+    </div>
+</div>
+
+
+
+<div class="bg-white p-4 rounded-lg mt-4 shadow">
+  <h2 class="font-bold mb-4">Anomaly Details</h2>
+  
+  <!-- Horizontal scroll -->
+  <div class="overflow-x-auto">
+    
+    <!-- Header Tabel -->
+    <div class="grid grid-cols-9 gap-4 text-sm min-w-[1200px]">
+      <div class="p-2 font-bold text-gray-500">UTRNNO</div>
+      <div class="p-2 font-bold text-gray-500">Anomaly Desc</div>
+      <div class="p-2 font-bold text-gray-500">Source Data</div>
+      <div class="p-2 font-bold text-gray-500">Priority</div>
+      <div class="p-2 font-bold text-gray-500">ML Score</div>
+      <div class="p-2 font-bold text-gray-500">Risk Score</div>
+      <div class="p-2 font-bold text-gray-500">Severity</div>
+      <div class="p-2 font-bold text-gray-500 col-span-2">Actions</div>
+    </div>
+    
+    <!-- Body Tabel -->
+    <div class="text-sm min-w-[1200px]">
+      
+      <!-- Baris Data 1 -->
+      <div class="grid grid-cols-9 gap-4 p-2 border-t border-gray-200 items-center">
+        <div>302370</div>
+        <div class="truncate">Unusual high-value transfer</div>
+        <div>Core Banking</div>
+        <div><span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">High</span></div>
+        <div>0.92</div>
+        <div>88</div>
+        <div>95</div>
+        <div class="col-span-2">
+          <button class="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded">
+            EXPLORE
+          </button>
+        </div>
+      </div>
+      
+      <!-- Baris Data 2 -->
+      <div class="grid grid-cols-9 gap-4 p-2 border-t border-gray-200 items-center">
+        <div>302770</div>
+        <div class="truncate">Multiple failed logins</div>
+        <div>Mobile App</div>
+        <div><span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Medium</span></div>
+        <div>0.75</div>
+        <div>65</div>
+        <div>70</div>
+        <div class="col-span-2">
+          <button class="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded">
+            EXPLORE
+          </button>
+        </div>
+      </div>
+
+      <!-- Baris Data 3 -->
+      <div class="grid grid-cols-9 gap-4 p-2 border-t border-gray-200 items-center">
+        <div>306811</div>
+        <div class="truncate">Access from new device</div>
+        <div>Web Portal</div>
+        <div><span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Low</span></div>
+        <div>0.45</div>
+        <div>40</div>
+        <div>35</div>
+        <div class="col-span-2">
+          <button class="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded">
+            EXPLORE
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

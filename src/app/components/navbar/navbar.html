@@ -1,0 +1,73 @@
+<header class="flex justify-between items-center p-3 bg-white rounded shadow">
+  <!-- Kiri: Hamburger -->
+  <button class="text-2xl text-white bg-blue-500 py-1 px-3 rounded-lg">
+    <fa-icon [icon]="faBars"></fa-icon>
+  </button>
+
+  <!-- Kanan: Search, Notif, User Info -->
+  <div class="flex items-center gap-4">
+
+    <div class="relative flex items-center">
+      <input
+        *ngIf="isSearchVisible"
+        type="text"
+        placeholder="Search..."
+        class="w-48 px-3 py-1.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+        (input)="onSearch($event)"
+      />
+
+
+      <!-- (berubah antara Search dan Close) -->
+      <button
+        (click)="toggleSearch()"
+        class="text-xl py-1 px-3 rounded-lg border-t border-l border-gray-300 ml-2"
+      >
+        <!-- Show , 'X' jika kolom search muncul -->
+        <fa-icon *ngIf="isSearchVisible" [icon]="faTimes"></fa-icon>
+        <!-- ikon 'Search' jika kolom search hidden -->
+        <fa-icon *ngIf="!isSearchVisible" [icon]="faSearch"></fa-icon>
+    </button>
+    </div>
+
+    <button
+      class="text-xl py-1 px-3 rounded border-t border-l border-gray-300"
+    >
+      <fa-icon [icon]="faBell"></fa-icon>
+    </button>
+
+    <!-- User Info -->
+    <div class="text-right leading-tight hidden sm:block">
+      <div class="font-semibold text-sm">username</div>
+      <div class="text-xs flex items-center justify-end gap-1 text-orange-400">
+        <span class="w-2 h-2 bg-orange-400 rounded-full inline-block"></span>
+        Online
+      </div>
+    </div>
+
+    <!-- Avatar -->
+    <img
+      src="/assets/avatar.png"
+      class="w-12 h-10 rounded-full border border-white"
+    />
+  </div>
+</header>
+
+<!-- shown if isSearchVisible = True
+ <div 
+  *ngIf="isSearchVisible" 
+  class="fixed inset-0 bg-gray-100 bg-opacity-10 backdrop-blur-sm z-50 flex justify-center items-start pt-20 transition-opacity duration-300"
+>
+  Wadah untuk input dan Close -->
+  <!-- <div class="relative w-full max-w-2xl transform transition-all duration-300 ease-in-out scale-95 opacity-0 animate-fade-in-scale">
+    <input
+      type="text"
+      placeholder="Type to search..."
+      class="w-full text-lg px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
+      autofocus
+    /> -->
+    <!-- TClose (X) -->
+    <!-- <button (click)="toggleSearch()" class="absolute top-1/2 right-4 -translate-y-1/2 text-2xl text-gray-400 hover:text-gray-600">
+      <fa-icon [icon]="faTimes"></fa-icon>
+    </button>
+  </div>
+</div> -->

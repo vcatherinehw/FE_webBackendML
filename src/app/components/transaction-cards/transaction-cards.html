@@ -1,0 +1,69 @@
+<div *ngIf="displayData" class="space-y-2 bg-white p-4 rounded shadow">
+  <!-- Header -->
+  <div class="flex justify-between items-center">
+    <div>
+      <h2 class="text-xl font-semibold">Transaction Info</h2>
+    </div>
+
+    <select
+      (change)="onTimeframeChange($event)"
+      class="text-sm font-semibold shadow rounded px-3 py-2 text-gray-600"
+    >
+      <option>Daily</option>
+      <option>Weekly</option>
+      <option>Monthly</option>
+    </select>
+  </div>
+
+  <!-- Current Transaction -->
+  <div class="flex items-center bg-red-500 text-white p-4 rounded shadow mt-4">
+    <div class="w-1 h-10 bg-white rounded-full mr-4"></div>
+    <div class="flex-1">
+      <h2 class="font-bold">Current Transactions</h2>
+      <p class="text-xl">{{displayData.currentTransactions}}</p>
+    </div>
+    <fa-icon
+      [icon]="faChartLine"
+      class="text-2xl py-2 px-3 text-gray-400 bg-white shadow rounded-lg"
+    ></fa-icon>
+  </div>
+
+  <!-- Major Source -->
+  <div class="flex items-center bg-blue-500 text-white p-4 rounded shadow">
+    <div class="w-1 h-10 bg-white rounded-full mr-4"></div>
+    <div class="flex-1">
+      <h2 class="font-bold">Major Source</h2>
+      <p class="text-xl">{{ displayData.majorSource }}</p>
+    </div>
+    <fa-icon
+      [icon]="faFileLines"
+      class="text-2xl py-2 px-3 text-gray-400 bg-white shadow rounded-lg"
+    ></fa-icon>
+  </div>
+
+  <!-- Anomalies Detected -->
+  <div class="flex items-center bg-yellow-400 text-white p-4 rounded shadow">
+    <div class="w-1 h-10 bg-white rounded-full mr-4"></div>
+    <div class="flex-1">
+      <h2 class="font-bold">Anomalies Detected</h2>
+      <p class="text-xl">{{ displayData.anomaliesDetected }}</p>
+    </div>
+    <fa-icon
+      [icon]="faExclamationTriangle"
+      class="text-2xl py-2 px-3 text-gray-400 bg-white shadow rounded-lg"
+    ></fa-icon>
+  </div>
+
+  <!-- Accounnts Detected -->
+  <div class="flex items-center bg-green-600 text-white p-4 rounded shadow">
+    <div class="w-1 h-10 bg-white rounded-full mr-4"></div>
+    <div class="flex-1">
+      <h2 class="font-bold">Accounts Detected</h2>
+      <p class="text-xl">{{ displayData.accountsDetected }}</p>
+    </div>
+    <fa-icon
+      [icon]="faUser"
+      class="text-2xl py-2 px-3 text-gray-400 bg-white shadow rounded-lg"
+    ></fa-icon>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<aside class="w-16 h-screen bg-white shadow flex flex-col items-center py-4">
+  <!-- Top: Logo -->
+  <img src="/assets/logo.png" class="w-8" alt="Logo" />
+
+  <!-- Main Navigation -->
+  <nav class="flex flex-col space-y-8 mt-16 text-gray-600">
+    
+    <a routerLink="/dashboard" class="hover:text-blue-600">
+      <fa-icon [icon]="faHome"></fa-icon>
+    </a>
+    <a routerLink="/anomaly-list" class="hover:text-blue-600">
+      <fa-icon [icon]="faDatabase"></fa-icon>
+    </a>
+
+    <button class="hover:text-blue-600"><fa-icon [icon]="faChartLine"></fa-icon></button>
+    <button class="hover:text-blue-600"><fa-icon [icon]="faEnvelope"></fa-icon></button>
+
+    <a routerLink="/notification" class="hover:text-blue-600">
+      <fa-icon [icon]="faBell"></fa-icon>
+    </a>
+    
+    <button class="hover:text-blue-600"><fa-icon [icon]="faUsers"></fa-icon></button>
+    <button class="hover:text-blue-600"><fa-icon [icon]="faCog"></fa-icon></button>
+  </nav>
+
+  <!-- Spacer agar logout di bawah -->
+  <div class="flex-1"></div>
+
+  <!-- Bottom: Logout -->
+  <button class="text-gray-400 hover:text-red-500 text-xl">
+    <fa-icon [icon]="faSignOutAlt"></fa-icon>
+  </button>
+</aside>
