@@ -1,39 +1,28 @@
 <header class="flex justify-between items-center p-3 bg-white rounded shadow">
   <!-- Kiri: Hamburger -->
-  <button class="text-2xl text-white bg-blue-500 py-1 px-3 rounded-lg">
+  <!-- <button class="text-2xl text-white bg-blue-500 py-1 px-3 rounded-lg">
     <fa-icon [icon]="faBars"></fa-icon>
-  </button>
-
-  <!-- Kanan: Search, Notif, User Info -->
-  <div class="flex items-center gap-4">
-
-    <div class="relative flex items-center">
-      <input
-        *ngIf="isSearchVisible"
-        type="text"
-        placeholder="Search..."
-        class="w-48 px-3 py-1.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
-        (input)="onSearch($event)"
-      />
-
-
-      <!-- (berubah antara Search dan Close) -->
-      <button
-        (click)="toggleSearch()"
-        class="text-xl py-1 px-3 rounded-lg border-t border-l border-gray-300 ml-2"
-      >
-        <!-- Show , 'X' jika kolom search muncul -->
-        <fa-icon *ngIf="isSearchVisible" [icon]="faTimes"></fa-icon>
-        <!-- ikon 'Search' jika kolom search hidden -->
-        <fa-icon *ngIf="!isSearchVisible" [icon]="faSearch"></fa-icon>
-    </button>
+  </button> -->
+  <div class="relative flex-1 max-w-md">
+    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+      <fa-icon [icon]="faSearch" class="text-gray-400"></fa-icon>
     </div>
+    <input
+      type="text"
+      placeholder="Search transactions, users..."
+      class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      (input)="onSearch($event)"
+    />
+  </div>
 
+  <!-- Kanan: Notif, User Info -->
+  <div class="flex items-center gap-4 ml-4">
+    <!-- Notif -->
     <button
-      class="text-xl py-1 px-3 rounded border-t border-l border-gray-300"
+      class="text-xl py-1 px-3 rounded-lg border-t border-l border-gray-300"
     >
       <fa-icon [icon]="faBell"></fa-icon>
-    </button>
+    </button>                                            
 
     <!-- User Info -->
     <div class="text-right leading-tight hidden sm:block">
@@ -45,10 +34,14 @@
     </div>
 
     <!-- Avatar -->
-    <img
+    <a routerLink="/profile" class="cursor-pointer">
+      <img
       src="/assets/avatar.png"
       class="w-12 h-10 rounded-full border border-white"
-    />
+      alt="User Avatar"
+      onerror="this.onerror=null; this.src='https://placehold.co/48x40/EFEFEF/333333?text=User';"
+      />
+    </a>
   </div>
 </header>
 

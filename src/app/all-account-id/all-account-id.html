@@ -1,0 +1,88 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4 mt-4">
+
+  <div class="bg-blue-500 text-white p-4 rounded-lg shadow flex items-center justify-between">
+    <div>
+      <p class="text-sm font-semibold">Total Accounts</p>
+      <p class="text-2xl font-bold">1,245</p>
+    </div>
+    <fa-icon [icon]="faUsers" class="text-3xl opacity-50"></fa-icon>
+  </div>
+
+  <div class="bg-green-500 text-white p-4 rounded-lg shadow flex items-center justify-between">
+    <div>
+      <p class="text-sm font-semibold">Active Accounts</p>
+      <p class="text-2xl font-bold">1,102</p>
+    </div>
+    <fa-icon [icon]="faUserCheck" class="text-3xl opacity-50"></fa-icon>
+  </div>
+
+  <div class="bg-red-500 text-white p-4 rounded-lg shadow flex items-center justify-between">
+    <div>
+      <p class="text-sm font-semibold">Suspended</p>
+      <p class="text-2xl font-bold">48</p>
+    </div>
+    <fa-icon [icon]="faUserSlash" class="text-3xl opacity-50"></fa-icon>
+  </div>
+  
+
+  <div class="bg-yellow-500 text-white p-4 rounded-lg shadow flex items-center justify-between">
+    <div>
+      <p class="text-sm font-semibold">Anomaly Detected</p>
+      <p class="text-2xl font-bold">12</p>
+    </div>
+    <fa-icon [icon]="faExclamationTriangle" class="text-3xl opacity-50"></fa-icon>
+  </div>
+</div>
+
+<!-- TABLE -->
+<div class="bg-white p-4 rounded-lg shadow">
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-xl font-bold text-gray-800">Accounts with Anomalies</h2>
+    <!-- <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+      + Add New Account
+    </button> -->
+  </div>
+
+  <!-- placeholder horizontally scrolll -->
+  <div class="overflow-x-auto">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Account ID</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Anomaly Type</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Anomaly Date</th>
+          <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Risk Score</th>
+          <!-- <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th> -->
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200 text-sm">
+        <tr *ngFor="let account of displayedAccounts" class="hover:bg-gray-50">
+          <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">{{ account.id }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="font-medium">{{ account.name }}</div>
+            <div class="text-xs text-gray-500">{{ account.email }}</div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full" [ngClass]="getStatusClass(account.status)">
+              {{ account.status }}
+            </span>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ account.anomalyType }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ account.anomalyDate }}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-center">
+             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full" [ngClass]="getRiskScoreClass(account.riskScore)">
+              {{ account.riskScore }}
+            </span>
+          </td>
+          <!-- <td class="px-6 py-4 whitespace-nowrap text-center">
+            <button class="text-gray-400 hover:text-blue-600">
+              <fa-icon [icon]="faEllipsisV"></fa-icon>
+            </button>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="space-y-6">
+
+  <div class="bg-white p-6 rounded-lg shadow flex flex-col sm:flex-row items-center gap-6">
+    <!-- Avatar -->
+    <img 
+      [src]="user.avatarUrl" 
+      class="w-24 h-24 rounded-full border-4 border-blue-200" 
+      alt="Profile Picture"
+      onerror="this.onerror=null; this.src='https://placehold.co/96x96/EFEFEF/333333?text=User';"
+    />
+  
+    <div class="flex-1 text-center sm:text-left">
+      <h2 class="text-2xl font-bold text-gray-800">{{ user.name }}</h2>
+      <p class="text-gray-500">{{ user.email }}</p>
+      <span class="mt-2 inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">{{ user.role }}</span>
+    </div>
+
+    <div class="flex gap-2">
+      <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+        Edit Profile
+      </button>
+      <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">
+        Change Password
+      </button>
+    </div>
+  </div>
+
+  <div class="bg-white p-6 rounded-lg shadow">
+    <h3 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">Personal Information</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+      <div>
+        <p class="font-semibold text-gray-500">Full Name</p>
+        <p class="text-gray-800">{{ user.name }}</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-500">Email Address</p>
+        <p class="text-gray-800">{{ user.email }}</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-500">Username</p>
+        <p class="text-gray-800">{{ user.username }}</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-500">Member Since</p>
+        <p class="text-gray-800">{{ user.memberSince }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- last activity -->
+  <div class="bg-white p-6 rounded-lg shadow">
+    <h3 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">Recent Activity</h3>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-4 py-2 text-left font-medium text-gray-500">Action</th>
+            <th class="px-4 py-2 text-left font-medium text-gray-500">Date & Time</th>
+            <th class="px-4 py-2 text-left font-medium text-gray-500">IP Address</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y">
+          <tr *ngFor="let activity of activityLog" class="hover:bg-gray-50">
+            <td class="px-4 py-2">{{ activity.action }}</td>
+            <td class="px-4 py-2">{{ activity.date }}</td>
+            <td class="px-4 py-2 text-gray-500">{{ activity.ip }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
