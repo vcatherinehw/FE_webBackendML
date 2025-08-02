@@ -1,4 +1,6 @@
-# Dashboard
+# Dashboard Machine Learning
+
+This application is a web-based analytical dashboard built with Angular, designed specifically for data science and machine learning teams. By leveraging machine learning models, this dashboard serves to effectively monitor, analyze, and manage transaction anomalies. Its main features include interactive data visualizations, a list of accounts with detected anomalies, and in-depth transaction details for further investigation.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.0.
 
